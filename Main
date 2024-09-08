@@ -1,0 +1,14 @@
+public class Main {
+
+    public static void main(String[] args) {
+
+
+        int n = 3;
+        int[] a = {1,2,3};
+        int[] b = {5,9,10};
+        VectorN A = new VectorN(n,a);
+        VectorN B = new VectorN(n,b);
+
+        A.sum(B);
+    }
+}
