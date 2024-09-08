@@ -1,0 +1,92 @@
+import javax.xml.stream.FactoryConfigurationError;
+import java.util.Vector;
+
+public class VectorN {
+    private int n;
+    private int[] coor = new int[n];
+
+    public VectorN(int n, int[] arr){
+        this.n = n;
+        this.coor = arr;
+    }
+
+    public int retN(){
+        return n;
+    }
+
+    public int[] retCoor(){
+        return coor;
+    }
+
+    public void priv(){
+        for(int i = 0; i < n;i ++){
+            System.out.println(coor[i]);
+        }
+    }
+
+    public int[] sum(VectorN B){
+        int[] coor1 = new int[n];
+        if(n == B.retN()){
+          int[] coorB = B.retCoor();
+
+          for(int i = 0; i < n; i++){
+              coor1[i] = coor[i] + coorB[i];
+              System.out.println(coor1[i]);
+          }
+        }
+        return coor1;
+    }
+
+    public int[] diff(VectorN B){
+        int[] coor1 = new int[n];
+        if(n == B.retN()){
+            int[] coorB = B.retCoor();
+
+            for(int i = 0; i < n; i++){
+                coor1[i] = coor[i] - coorB[i];
+                .out.println(coor1[i]);
+            }
+        }
+        return coor1;
+    }
+
+    public double scalar_product(VectorN B){
+        int coor1 = 0;
+        if(n == B.retN()){
+            int[] coorB = B.retCoor();
+
+            for(int i = 0; i < n; i++){
+                coor1 += coor[i] * coorB[i];
+                System.out.println(coor1);
+            }
+        }
+        return coor1;
+    }
+
+    public double length(){
+        double coor1 = 0;
+        for(int i : coor){
+            coor1 += Math.pow(i,2);
+        }
+        return Math.sqrt(coor1);
+    }
+
+    public double angle(VectorN B){
+        double zz = scalar_product(B);
+        double cosA = (zz/(B.length()) * length());
+        return Math.acos(cosA);
+    }
+
+    public double ParaS(VectorN B){
+        return length() * B.length() * Math.sin(angle(B));
+    }
+
+    public double matrix(double a,double b,double c, double d){
+        return a*d - b*c;
+    }
+
+    public double Vec_product(VectorN B){
+
+    }
+
+}
